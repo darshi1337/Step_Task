@@ -24,11 +24,10 @@ epubs = [
     r'C:\Users\DARSHI\Desktop\Step_Task\epub_files\Stephen King - It_ A Novel-Signet (2009).epub'
 ]
 
-output_dir = 'extracted_text'
-os.makedirs(output_dir, exist_ok=True)
+os.makedirs('extracted_text', exist_ok=True)
 
 for i, epub_file in enumerate(epubs):
     extracted_text = extract(epub_file)
-    text_file_path = os.path.join(output_dir, f'ebook_{i+1}.txt')
+    text_file_path = os.path.join('extracted_text', f'ebook_{i+1}.txt')
     new_file(extracted_text, text_file_path)
     print(f"Text extracted from '{epub_file}' and saved to '{text_file_path}'")
