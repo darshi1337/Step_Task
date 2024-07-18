@@ -14,7 +14,8 @@ for f in files:
 
 cluster_emb = np.vstack(embeddings)
 
-gmm = GaussianMixture(n_components = 10, covariance_type='tied')
-cluster = gmm.fit(cluster_emb)
+gmm = GaussianMixture(n_components=10, covariance_type='tied')
+gmm.fit(cluster_emb)
+cluster_labels = gmm.predict(cluster_emb)
 
-np.save('clusters.npy', cluster)
+np.save('clusters.npy', cluster_labels)
